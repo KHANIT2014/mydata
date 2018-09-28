@@ -8,6 +8,9 @@
         background: #fafafa;
         height: 100vh;
     }
+    body::-webkit-scrollbar {
+        display: none;
+    }
 
     p {
         font-family: 'Roboto', sans-serif;
@@ -58,6 +61,9 @@
         background-color: #cc2105;
         color: white;
     }
+    .bg-red:hover , .btn-red:hover {
+        background-color: #D52C1B;
+    }
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
@@ -75,83 +81,87 @@
         background: #000;
         color: #fff;
         transition: all 0.3s;
-
     }
 
     #sidebar.active {
         margin-left: -350px;
         
     }
-    #sidebar .sidebar-header{
-        padding: 20px;
-        /*custom dark background for brand logo*/
-        background: #101010;
-    }
-    /*custom brand span*/
-    #sidebar .sidebar-header h3{
-        margin-top: 0.5rem;
-        margin-bottom: -0.08rem;
-        font-size: 30.4px;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-    /*custom*/
-    .questiondisplay{
-        padding: 15px;
-    }
-    
-    #sidebar .sidebar-header span{
-        display: block;
-        font-size: 8px;
-        font-family: 'Roboto', sans-serif;
-        letter-spacing: 6px;
-        text-align: center;
-        text-transform: uppercase;
-    }
 
-    #sidebar ul.components {
-        transition: 2s ease;
-        padding: 20px 0;
-        border-bottom: 1px solid #cc2105;
-        padding: 1rem;
-    }
+    /* #sidebar::-webkit-scrollbar {
+        display: none;
+        } */
 
-    #sidebar ul li a {
-        padding: 10px;
-        font-size: 1.1em;
-        display: block;
-    }
+        #sidebar .sidebar-header{
+            padding: 20px;
+            /*custom dark background for brand logo*/
+            background: #101010;
+        }
+        /*custom brand span*/
+        #sidebar .sidebar-header h3{
+            margin-top: 0.5rem;
+            margin-bottom: -0.08rem;
+            font-size: 30.4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        /*custom*/
+        .questiondisplay{
+            padding: 15px;
+        }
+        
+        #sidebar .sidebar-header span{
+            display: block;
+            font-size: 8px;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 6px;
+            text-align: center;
+            text-transform: uppercase;
+        }
 
-    #sidebar ul li a:hover {
-        color: #7386D5;
-        background: #fff;
-    }
+        #sidebar ul.components {
+            transition: 2s ease;
+            padding: 20px 0;
+            border-bottom: 1px solid #cc2105;
+            padding: 1rem;
+        }
 
-    #sidebar ul li.active>a,
-    a[aria-expanded="true"] {
-        color: #fff;
-        background: #6d7fcc;
-    }
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
 
-    a[data-toggle="collapse"] {
-        position: relative;
-    }
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
+        }
 
-    .dropdown-toggle::after {
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        transform: translateY(-50%);
-    }
+        #sidebar ul li.active>a,
+        a[aria-expanded="true"] {
+            color: #fff;
+            background: #6d7fcc;
+        }
 
-    ul ul a {
-        font-size: 0.9em !important;
-        padding-left: 30px !important;
-        background: #6d7fcc;
-    }
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #6d7fcc;
+        }
 
 /* ---------------------------------------------------
     CONTENT STYLE

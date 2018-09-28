@@ -1,4 +1,5 @@
-<?php 
+<?php
+ob_start();
 require("config.php");
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,8 @@ require("config.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="index.css">
-
+    <!-- Fint Awesome CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -94,48 +96,7 @@ require("config.php");
                     </div>
                 </div>
             </ul>
-            <div class="container-fluid">
-                <div class="">
-                    <table class="table text-center table-stripped table-responsive">
-                        <thead>
-                            <tr>
-                                <th>Sr</th>
-                                <th>Name</th>
-                                <th>Roll</th>
-                                <th>Sr</th>
-                                <th>Name</th>
-                                <th>Roll</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-
-                            </tr>
-                            <tr>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-                            </tr>
-                            <tr>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-                                <td>Sr</td>
-                                <td>Name</td>
-                                <td>Roll</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="csqtqstq bg-light text-dark">
             </div>
         </nav>
 
@@ -196,6 +157,8 @@ require("config.php");
               <h2>Lorem Ipsum Dolor</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
+              <h2>Lorem Ipsum Dolor</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
       </div>
 
@@ -212,12 +175,32 @@ require("config.php");
   <!--   <script src="https://stackpath.botstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
   <script src="bootstrap.min.js"></script>
   <script type="text/javascript">
+
+    function view(QID)
+    {
+        // alert(QID);
+        $.ajax(
+        {
+            type : "POST",
+            datatype : "json",
+            url : "backend.php",
+            data : {
+                qid : QID
+            },
+            success : function(data)
+            {
+                console.log(data);
+                $('.questiondisplay').html(data);
+            }
+        }
+        );
+    }
+
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
-
         });
-        /*----------------------------------------------ajax starts here----------------------------------------------*/
+        /*-----------------------------------------ajax starts here-------------------------------------*/
                     //using course to load value of level
                     $('#course').change(function(e){
                         e.preventDefault();
@@ -228,8 +211,9 @@ require("config.php");
                             {course : cname},
                             function(data)
                             {
-                                console.log(data);
-                                $('#level').html('<option selected>Level</option><br>'+data);
+                                var Data = JSON.parse(data);
+                                $('#level').html('<option selected>Level</option><br>'+Data[0]);
+                                $('#reference').html('<option selected>Reference</option><br>'+Data[1]);
                             }
                             );
                     });
@@ -280,7 +264,7 @@ require("config.php");
                                 success : function(data){
                                     // var Data =$.parseJSON(data);
                                     var Data = JSON.parse(data);
-                                    console.log(Data[1]);
+                                    // console.log(Data[1]);
                                     $('#attempt').html('<option selected>Attempt</option><br>'+Data[0]);
                                     $('#subject').html('<option selected>Subject</option><br>'+Data[1]);
                                 }
@@ -295,7 +279,7 @@ require("config.php");
                                 {sname : sname},
                                 function(data)
                                 {
-                                    console.log(data);
+                                    // console.log(data);
                                     $('#topic').html('<option selected>Topic</option><br>'+data);
                                 }
                                 );
@@ -310,14 +294,47 @@ require("config.php");
                                 {tname : tname},
                                 function(data)
                                 {
-                                    console.log(data);
+                                    // console.log(data);
                                     $('#subtopic').html('<option selected>Sub-Topic</option>'+data);
                                 }
-                                )
+                                );
                         });
 
+                        //loading multiple values for question
+                        $('#subtopic').change(function(){
+                            var stname = $(this).val();
+
+                            $.ajax(
+                            {
+                                type : "POST",
+                                url : "backend.php",
+                                datatype : "json",
+                                data :
+                                {
+                                    stname : stname
+                                },
+                                success : function(data)
+                                {
+                                    // console.log("values are : "+data);
+                                    $('.csqtqstq').html(data);
+                                }
+                            }
+                            );
+                        });
+                        
+                        // $('.csqtqstq > a.btn').click(function(){
+                        //     // var a = $(this).data('question');
+                        //     console.log("hello world");
+                        //     $(this).addClass('btn-success');
+                        //     // console.log(e.target.getAttribute('id'));
+                        //     // console.log($(this).attr('id'));
+                        //     // console.log(a);
+                        // });
+
+                        //css property for navbar
                     });
                 </script>
+
             </body>
 
             </html>
