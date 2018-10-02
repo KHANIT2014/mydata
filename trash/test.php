@@ -67,10 +67,10 @@
 											while ($demo = $temp->fetch_row() AND $demo1 = $temp1->fetch_row()) {
 												$aname = "<option value='$demo[0]'>$demo[0]</option>";
 												$sname = "<option value='$demo1[0]'>$demo1[0]</option>";
-												$response = array("aname" => $aname, "sname" => $sname);
 											}
+												$response = array("aname" => $aname, "sname" => $sname);
 												array_push($data,$response);
-												echo json_encode($response);
+												echo json_encode($data);
 										}
 										?>
 										

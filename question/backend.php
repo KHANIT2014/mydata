@@ -1,5 +1,5 @@
 			<?php 
-			require("config.php");
+			require("../config.php");
 			//fetching data from level
 			if (isset($_POST['course'])) {
 				$c_name = secure($_POST['course']);
@@ -108,10 +108,10 @@
 			if (isset($_POST['stname'])) {
 				$stname = secure($_POST['stname']);
 
-				$string = "SELECT c.CID , s.SID , q.QID , t.T_name , q.Q_time , q.Q_marks
+				$string = "SELECT c.CID , s.SID , q.QID , t.T_name , q.Q_time , q.Q_marks , st.STID
 				FROM `subtopic` AS st
 				INNER JOIN `question` AS q
-				ON st.ST_name='$stname' AND q.Q_STID=st.ST_TID
+				ON st.ST_name='$stname' AND q.Q_STID=st.STID
 				INNER JOIN `topic` AS t
 				ON t.TID=st.ST_TID
 				INNER JOIN `subject` AS s
@@ -124,14 +124,14 @@
 				$temp = $sql->query($string);
 				while($demo = $temp->fetch_row()){
 					?>
-					<button class="clickable btn btn-block btn-light" onclick="view(<?php echo $demo[2]; ?>)">
+					<button class="clickable btn btn-block btn-light" onclick="view(<?php echo $demo[2].",".$demo[6] ; ?>)">
 						<div style="text-align: left;">
 							<div>
 								<?php echo "<b><em>C".$demo[0].".".$demo[1].".".$demo[2]."</em></b>&nbsp&nbsp&nbsp".$demo[3]; ?>
 							</div>
 							<div>
 								<?php echo "M(".$demo[5].")"; ?>&nbsp<span style="color: red;"><?php echo $stname; ?></span>
-								<div style="float: right;clear: both;"><?php echo "<i class='fa fa-clock-o' aria-hidden='true'></i>".$demo[4].":00"; ?></div>
+								<div style="float: right;clear: both;"><?php echo "<i class='fa fa-clock' aria-hidden='true'></i>".$demo[4].":00"; ?></div>
 							</div>
 						</div>
 					</button>
@@ -140,9 +140,10 @@
 			}
 
 			//fetching data from question
-			if (isset($_POST['qid'])) {
+			if (isset($_POST['qid']) && !empty($_POST['stid'])) {
 				$qid = secure($_POST['qid']);
-				$string = "SELECT * FROM `question` WHERE QID=$qid";
+				$stid = secure($_POST['stid']);
+				$string = "SELECT * FROM `question` WHERE Q_STID=$stid AND QID=$qid";
 				$temp = $sql->query($string);
 
 				if($demo = $temp->fetch_row()){
@@ -150,6 +151,7 @@
 					<div class="card">
 						<div class="card-header">
 							<?php echo $demo[2]; ?>
+							<div style="float : right;" id="time"></div>
 						</div>
 						<div class="card-body">
 							<h5 class="card-title text-center">Option</h5>
