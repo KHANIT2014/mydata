@@ -151,7 +151,8 @@
 					<div class="card">
 						<div class="card-header">
 							<?php echo $demo[2]; ?>
-							<div style="float : right;" id="time"></div>
+							<!-- <div style="float : right;" id="time"></div> -->
+							<div style="float : right;"><label id="minutes">00</label>:<label id="seconds">00</label></div>
 						</div>
 						<div class="card-body">
 							<h5 class="card-title text-center">Option</h5>

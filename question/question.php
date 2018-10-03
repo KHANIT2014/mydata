@@ -27,23 +27,23 @@ if (!isset($_SESSION['uid'])) {
 <body>
     <!--CSS Spinner-->
     <div class="spinner-wrapper">
-       <div class="sk-fading-circle">
-          <div class="sk-circle1 sk-circle"></div>
-          <div class="sk-circle2 sk-circle"></div>
-          <div class="sk-circle3 sk-circle"></div>
-          <div class="sk-circle4 sk-circle"></div>
-          <div class="sk-circle5 sk-circle"></div>
-          <div class="sk-circle6 sk-circle"></div>
-          <div class="sk-circle7 sk-circle"></div>
-          <div class="sk-circle8 sk-circle"></div>
-          <div class="sk-circle9 sk-circle"></div>
-          <div class="sk-circle10 sk-circle"></div>
-          <div class="sk-circle11 sk-circle"></div>
-          <div class="sk-circle12 sk-circle"></div>
-      </div>
+     <div class="sk-fading-circle">
+      <div class="sk-circle1 sk-circle"></div>
+      <div class="sk-circle2 sk-circle"></div>
+      <div class="sk-circle3 sk-circle"></div>
+      <div class="sk-circle4 sk-circle"></div>
+      <div class="sk-circle5 sk-circle"></div>
+      <div class="sk-circle6 sk-circle"></div>
+      <div class="sk-circle7 sk-circle"></div>
+      <div class="sk-circle8 sk-circle"></div>
+      <div class="sk-circle9 sk-circle"></div>
+      <div class="sk-circle10 sk-circle"></div>
+      <div class="sk-circle11 sk-circle"></div>
+      <div class="sk-circle12 sk-circle"></div>
   </div>
+</div>
 
-  <div class="wrapper">
+<div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -204,29 +204,34 @@ crossorigin="anonymous"></script>
             {
                 console.log(data);
                 $('.questiondisplay').html(data);
-                
-                //function for time
-                function startTimer(duration, display) {
-                    var timer = duration, minutes, seconds;
-                    setInterval(function () {
-                        minutes = parseInt(timer / 60, 10)
-                        seconds = parseInt(timer % 60, 10);
 
-                        minutes = minutes < 10 ? "0" + minutes : minutes;
-                        seconds = seconds < 10 ? "0" + seconds : seconds;
+                //function for time 
+                var minutesLabel = document.getElementById("minutes");
+                var secondsLabel = document.getElementById("seconds");
+                var totalSeconds = 0;
+                setInterval(setTime, 1000);
 
-                        display.textContent = minutes + ":" + seconds;
+                function setTime() {
+                  ++totalSeconds;
+                  secondsLabel.innerHTML = pad(totalSeconds % 60);
+                  minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+              }
 
-                        if (--timer < 0) {
-                            timer = duration;
-                        }
-                    }, 1000);
+              function pad(val) {
+                  var valString = val + "";
+                  if (valString.length < 2) {
+                    return "0" + valString;
+                } else {
+                    return valString;
                 }
-                //function for time close
-                var oneMinutes = 60 * 1,
-                display = document.querySelector('#time');
-                startTimer(oneMinutes, display);
             }
+            setTimeout(function(){
+                totalSeconds = "";
+                secondsLabel.innerHTML = pad(totalSeconds % 60);
+                minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+            }, 60000);
+
+        }
             // succes close
         }
         );
