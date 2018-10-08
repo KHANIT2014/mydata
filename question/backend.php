@@ -152,14 +152,15 @@
 						<div class="card-header">
 							<?php echo $demo[2]; ?>
 							<!-- <div style="float : right;" id="time"></div> -->
-							<div style="float : right;"><label id="minutes">00</label>:<label id="seconds">00</label></div>
+							<div style="float : right;"><span id="ansTime"><label id="minutes">00</label>:<label id="seconds">00</label></span></div>
 						</div>
 						<div class="card-body">
 							<h5 class="card-title text-center">Option</h5>
 							<p class="card-text"><?php echo $demo[3]; ?></p>
 						</div>
 						<div class="card-footer text-muted">
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+							<button type="button" class="btn btn-info adapt" data-toggle="modal" 
+							data-target="#exampleModal">
 								Show Answer
 							</button>
 							<!-- Modal -->

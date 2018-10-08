@@ -18,8 +18,7 @@ if (!isset($_SESSION['uid'])) {
     <link rel="stylesheet" href="../css/index.css">
     <!-- spinner css -->
     <link rel="stylesheet" href="../css/spinner.css">
-    <!-- Fint Awesome CSS -->
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -231,6 +230,12 @@ crossorigin="anonymous"></script>
                 minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
             }, 60000);
 
+            //adapt
+            $('.adapt').click(function(){
+                var a = $('#ansTime').text();
+                $('#ansTime').text(a);
+            });
+
         }
             // succes close
         }
@@ -383,6 +388,7 @@ crossorigin="anonymous"></script>
 
                         //css property for navbar
                     });
+
                 </script>
 
             </body>
