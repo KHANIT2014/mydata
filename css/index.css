@@ -185,8 +185,21 @@
     }
 
     #content div ul li a.active{
-     border-bottom: 2px solid #ff3c41;
- }
+       border-bottom: 2px solid #ff3c41;
+   }
+/* ---------------------------------------------------
+    CUSTOM
+    ----------------------------------------------------- */
+    .csqtqstq{
+        height: 43.5vh;
+        overflow-y: auto;
+    }
+    .question-display{
+        height: 10vh;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+
 /* ---------------------------------------------------
     MEDIAQUERIES
     ----------------------------------------------------- */

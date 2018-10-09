@@ -25,28 +25,28 @@ require("../config.php");
 </head>
 <body>
     <!--CSS Spinner-->
-    <div class="spinner-wrapper">
-     <div class="sk-fading-circle">
-      <div class="sk-circle1 sk-circle"></div>
-      <div class="sk-circle2 sk-circle"></div>
-      <div class="sk-circle3 sk-circle"></div>
-      <div class="sk-circle4 sk-circle"></div>
-      <div class="sk-circle5 sk-circle"></div>
-      <div class="sk-circle6 sk-circle"></div>
-      <div class="sk-circle7 sk-circle"></div>
-      <div class="sk-circle8 sk-circle"></div>
-      <div class="sk-circle9 sk-circle"></div>
-      <div class="sk-circle10 sk-circle"></div>
-      <div class="sk-circle11 sk-circle"></div>
-      <div class="sk-circle12 sk-circle"></div>
-  </div>
-</div>
+    <!-- <div class="spinner-wrapper">
+       <div class="sk-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+      </div>
+  </div> -->
 
-<div class="wrapper">
+  <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Question Bank</h3>
+            <h3>Question Paper</h3>
             <span>Education</span>
         </div>
         
@@ -72,7 +72,6 @@ require("../config.php");
                     <div class="form-group">
                         <select class="form-control" id="level" name="level">
                             <option value="">Level</option>
-                            
                         </select>
                     </div>
                 </div>
@@ -80,31 +79,6 @@ require("../config.php");
                     <div class="form-group">
                         <select class="form-control" id="attempt" name="attempt">
                             <option value="">Attempt</option>
-                            
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="subject" name="subject">
-                            <option value="">Subject</option>
-                            
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="topic" name="topic">
-                            <option value="">Topic</option>
-                            
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="subtopic" name="subtopic">
-                            <option value="">Sub-Topic</option>
-                            
                         </select>
                     </div>
                 </div>
@@ -112,13 +86,33 @@ require("../config.php");
                     <div class="form-group">
                         <select class="form-control" id="reference" name="reference">
                             <option value="">References</option>
-                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <select class="form-control" id="subject" name="subject">
+                            <option value="">Subject</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <select class="form-control" id="topic" name="topic">
+                            <option value="">Topic</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <select class="form-control" id="subtopic" name="subtopic">
+                            <option value="">Sub-Topic</option>
                         </select>
                     </div>
                 </div>
             </div>
         </ul>
-        <div class="csqtqstq bg-light text-dark">
+        <div class="csqtqstq">
         </div>
     </nav>
 
@@ -143,7 +137,7 @@ require("../config.php");
                         <li class="nav-item">
                             <a class="nav-link active" href="question.php">Question Bank</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="../terms.php">Terms</a>
                         </li>
                         <li class="nav-item">
@@ -151,10 +145,23 @@ require("../config.php");
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../contact.php">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../logout.php">Logout</a>
-                        </li>
+                        </li> -->
+                        <?php
+                        if (!isset($_SESSION['uid'])) {
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../signup.php">Signup</a>
+                            </li>
+                            <?php
+                        }
+                        if (isset($_SESSION['uid'])) {
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../logout.php">Logout</a>
+                            </li>
+                            <?php 
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -162,7 +169,7 @@ require("../config.php");
         <!-- //banner-text -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html" class="text-red">Home</a>
+                <a href="../index.html" class="text-red">Home</a>
             </li>
             <li class="breadcrumb-item active">Question Bank</li>
         </ol>
@@ -175,13 +182,11 @@ require("../config.php");
 
 </div>
 
-<!-- jQuery CDN -->
+<!-- jQuery -->
 <script
-src="https://code.jquery.com/jquery-3.3.1.js"
-integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-crossorigin="anonymous"></script>
+src="../jquery.js"></script>
 <!-- Popper.JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="../popper.js"></script>
 <!-- Bootstrap JS -->
 <!--   <script src="https://stackpath.botstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
 <script src="../js/bootstrap.js"></script>
@@ -245,14 +250,14 @@ crossorigin="anonymous"></script>
     // main function close
 
     //Preloader
-    $(window).on("load", function() {
+    /*$(window).on("load", function() {
         var preloaderFadeOutTime = 500;
         function hidePreloader() {
             var preloader = $('.spinner-wrapper');
             preloader.fadeOut(preloaderFadeOutTime);
         }
         hidePreloader();
-    });
+    });*/
     $(document).ready(function () {
         // to toggle sidebar
         $('#sidebarCollapse').on('click', function () {
@@ -275,36 +280,6 @@ crossorigin="anonymous"></script>
                             }
                             );
                     });
-
-                        //using level to load value of attempt
-                        // $('#level').change(function(){
-                        //     var lname = $(this).val();
-
-                        //     $.post(
-                        //         "backend.php",
-                        //         {lname:lname},
-                        //         function(data)
-                        //         {
-                        //            console.log(data);
-                        //            $('#attempt').html(data);
-                        //        }
-                        //        );
-                        // });
-
-                        //using level to load value of subject
-                        // $('#level').change(function(){
-                        //     var lname = $(this).val();
-
-                        //     $.post(
-                        //         "backend.php",
-                        //         {lnames:lname},
-                        //         function(data)
-                        //         {
-                        //             console.log(data);
-                        //             $('#subject').html(data);
-                        //         }
-                        //         );
-                        // });
 
                         //loading value of subject and attempt using .ajax()
                         $('#level').change(function(e){
@@ -377,16 +352,6 @@ crossorigin="anonymous"></script>
                             );
                         });
                         
-                        // $('.csqtqstq > a.btn').click(function(){
-                        //     // var a = $(this).data('question');
-                        //     console.log("hello world");
-                        //     $(this).addClass('btn-success');
-                        //     // console.log(e.target.getAttribute('id'));
-                        //     // console.log($(this).attr('id'));
-                        //     // console.log(a);
-                        // });
-
-                        //css property for navbar
                     });
 
                 </script>
