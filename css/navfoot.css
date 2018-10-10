@@ -1,0 +1,19 @@
+	#naav , .bg-black0{
+		/*background-color: #0E204C !important;*/
+		background-color: #000;
+	}
+	.bg-black{
+		background-color: #101010;
+	}
+	.bottom-link  a{
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+	@media(min-width: 500px) AND (max-width: 768px){
+		
+	}
+	@media (max-width: 500px){
+		.bottom-link > div{
+			padding-bottom: 0.4rem;
+		}
+	}

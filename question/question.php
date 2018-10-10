@@ -13,36 +13,41 @@ require("../config.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Question Paper</title>
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="../css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../css/index.css">
     <!-- spinner css -->
     <link rel="stylesheet" href="../css/spinner.css">
+    <!-- nav and footer style -->
+    <link rel="stylesheet" href="../css/navfoot.css">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <style>
+
+</style>
 </head>
 <body>
     <!--CSS Spinner-->
-    <!-- <div class="spinner-wrapper">
-       <div class="sk-fading-circle">
-          <div class="sk-circle1 sk-circle"></div>
-          <div class="sk-circle2 sk-circle"></div>
-          <div class="sk-circle3 sk-circle"></div>
-          <div class="sk-circle4 sk-circle"></div>
-          <div class="sk-circle5 sk-circle"></div>
-          <div class="sk-circle6 sk-circle"></div>
-          <div class="sk-circle7 sk-circle"></div>
-          <div class="sk-circle8 sk-circle"></div>
-          <div class="sk-circle9 sk-circle"></div>
-          <div class="sk-circle10 sk-circle"></div>
-          <div class="sk-circle11 sk-circle"></div>
-          <div class="sk-circle12 sk-circle"></div>
-      </div>
-  </div> -->
+    <div class="spinner-wrapper">
+     <div class="sk-fading-circle">
+      <div class="sk-circle1 sk-circle"></div>
+      <div class="sk-circle2 sk-circle"></div>
+      <div class="sk-circle3 sk-circle"></div>
+      <div class="sk-circle4 sk-circle"></div>
+      <div class="sk-circle5 sk-circle"></div>
+      <div class="sk-circle6 sk-circle"></div>
+      <div class="sk-circle7 sk-circle"></div>
+      <div class="sk-circle8 sk-circle"></div>
+      <div class="sk-circle9 sk-circle"></div>
+      <div class="sk-circle10 sk-circle"></div>
+      <div class="sk-circle11 sk-circle"></div>
+      <div class="sk-circle12 sk-circle"></div>
+  </div>
+</div>
 
-  <div class="wrapper">
+<div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -119,76 +124,131 @@ require("../config.php");
     <!-- Page Content  -->
     <div id="content">
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black0" style="position: sticky;top: 0px;">
             <div class="container-fluid">
 
                 <button type="button" id="sidebarCollapse" class="btn btn-red">
                     <i class="fas fa-align-left"></i>
                 </button>
                 <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: transparent;border-color: grey;">
-                    <i class="fas fa-align-justify"></i>
+                    <i class="fas fa-align-justify text-light"></i>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Home</a>
+                            <a href="../index.php" class="nav-link">
+                                Home
+                            </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link active" href="question.php">Question Bank</a>
+                            <a href="question.php" class="nav-link text-light">
+                                Question Paper
+                            </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="../terms.php">Terms</a>
-                        </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="../privacy.php">Privacy</a>
+                            <a href="../about.php" class="nav-link">
+                                About
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contact.php">Contact Us</a>
-                        </li> -->
+
                         <?php
-                        if (!isset($_SESSION['uid'])) {
+                        if(!isset($_SESSION['uid'])){
                             ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../signup.php">Signup</a>
+                            <li class="nav-item dropdown">
+
+                                <a href="#" class="nav-link btn btn-outline-danger my-sm-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Account
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="../login.php">
+                                        Login
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item" href="../signup.php">
+                                        Signup
+                                    </a>
+
+                                </div>
                             </li>
                             <?php
                         }
-                        if (isset($_SESSION['uid'])) {
+                        ?>
+
+                        <?php
+                        if(isset($_SESSION['uid'])){
                             ?>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="../logout.php">Logout</a>
+                                <a href="../logout.php" class="nav-link btn btn-outline-danger my-2 my-sm-0">
+                                    Logout
+                                </a>
                             </li>
-                            <?php 
+                            <?php
                         }
                         ?>
-                    </ul>
-                </div>
+
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <!-- //banner-text -->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="../index.html" class="text-red">Home</a>
-            </li>
-            <li class="breadcrumb-item active">Question Bank</li>
-        </ol>
-        <div class="questiondisplay">
-          <div class="line"></div>
-          <h2 class="text-center"><b>Question</b> will display here</h2>
-          <div class="line"></div>
-      </div>
+        </div>
+    </nav>
+    <!-- //banner-text -->
+    <!-- <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="../index.html" class="text-red">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Question Bank</li>
+    </ol>
+    <div class="questiondisplay">
+      <div class="line"></div>
+      <h2 class="text-center"><b>Question</b> will display here</h2>
+      <div class="line"></div>
   </div>
+ -->  <!-- content closes here -->
+</div>
+
+<!-- wrapper closes here -->
+</div>
+<!-- footer starts here -->
+<div class="footer m-0 bg-black py-3" >
+
+    <div class="row justify-content-center mx-0 bottom-link">
+        <div class="col-sm-12 col-md-auto text-center ">
+            <a href="terms.php">Terms</a>
+        </div>
+        <div class="col-sm-12 col-md-auto text-center ">
+            <a href="disclaimer.php">Disclaimer</a>
+        </div>
+        <div class="col-sm-12 col-md-auto text-center">
+            <a href="privacy.php">Privacy</a>
+        </div>
+        <div class="col-sm-12 col-md-auto text-center">
+            <a href="cookie.php">Cookie</a>
+        </div>
+        <div class="col-sm-12 col-md-auto text-center">
+            <a href="contact.php">Contact</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mx-0 pr-3 text-danger">
+        &copy; 2018-2019 , created by &nbsp<a href="http://www.hertzsoft.com" class="text-light">Hertzsoft</a>
+    </div>
 
 </div>
 
 <!-- jQuery -->
 <script
-src="../jquery.js"></script>
+src="../js/jquery.js"></script>
 <!-- Popper.JS -->
-<script src="../popper.js"></script>
+<script src="../js/popper.js"></script>
 <!-- Bootstrap JS -->
-<!--   <script src="https://stackpath.botstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script> -->
 <script src="../js/bootstrap.js"></script>
 <script type="text/javascript">
 
@@ -206,7 +266,7 @@ src="../jquery.js"></script>
             },
             success : function(data)
             {
-                console.log(data);
+                // console.log(data);
                 $('.questiondisplay').html(data);
 
                 //function for time 
@@ -250,14 +310,14 @@ src="../jquery.js"></script>
     // main function close
 
     //Preloader
-    /*$(window).on("load", function() {
+    $(window).on("load", function() {
         var preloaderFadeOutTime = 500;
         function hidePreloader() {
             var preloader = $('.spinner-wrapper');
             preloader.fadeOut(preloaderFadeOutTime);
         }
         hidePreloader();
-    });*/
+    });
     $(document).ready(function () {
         // to toggle sidebar
         $('#sidebarCollapse').on('click', function () {
@@ -345,7 +405,9 @@ src="../jquery.js"></script>
                                 },
                                 success : function(data)
                                 {
-                                    // console.log("values are : "+data);
+                                    if(data){
+                                        $('.csqtqstq').css("background-color","#CBCBCB");
+                                    }
                                     $('.csqtqstq').html(data);
                                 }
                             }

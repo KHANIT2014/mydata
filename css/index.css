@@ -126,6 +126,7 @@
             padding: 20px 0;
             border-bottom: 1px solid #cc2105;
             padding: 1rem;
+            margin-bottom: 0;
         }
 
         #sidebar ul li a {
@@ -174,24 +175,13 @@
         min-height: 100vh;
         transition: all 0.3s;
     }
-    /*custom nav-link bottom border*/
-    #content div ul li a{
-        border-bottom: 2px solid transparent;
-    }
-
-    #content div ul li a:hover,
-    #content div ul li a:focus{
-        border-bottom: 2px solid #ff3c41;
-    }
-
-    #content div ul li a.active{
-       border-bottom: 2px solid #ff3c41;
-   }
+    
 /* ---------------------------------------------------
     CUSTOM
     ----------------------------------------------------- */
     .csqtqstq{
-        height: 43.5vh;
+        margin-top: 0;
+        height: 48.5vh;
         overflow-y: auto;
     }
     .question-display{
@@ -204,7 +194,7 @@
     MEDIAQUERIES
     ----------------------------------------------------- */
 
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
         .navbar{
             padding-bottom: 0.45rem;
         }
@@ -222,11 +212,30 @@
         #content{
             padding-top: 0;
         }
+        .csqtqstq{
+            height: 63vh;
+        }
     }
     @media (min-width: 992px){
         #content div ul li {
             padding-right: 0.5rem;
             padding-left: 0.5rem;
             margin: auto;
+        }
+    }
+    @media (width: 1024px) AND (height: 1366px){
+        .csqtqstq {
+            height: 73.7vh;
+            /*height: 61.5vh;*/
+        }
+    }
+    @media (width: 1366px) AND (height: 1024px){
+        .csqtqstq{
+            height: 65vh;
+        }
+    }
+    @media(max-width: 500px){
+        .csqtqstq{
+            height: 43.5vh;
         }
     }
