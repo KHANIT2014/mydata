@@ -16,8 +16,6 @@ require("../config.php");
     <link rel="stylesheet" href="../css/bootstrap.css">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="../css/index.css">
-    <!-- spinner css -->
-    <link rel="stylesheet" href="../css/spinner.css">
     <!-- nav and footer style -->
     <link rel="stylesheet" href="../css/navfoot.css">
 
@@ -29,24 +27,6 @@ require("../config.php");
 </style>
 </head>
 <body>
-    <!--CSS Spinner-->
-    <div class="spinner-wrapper">
-       <div class="sk-fading-circle">
-          <div class="sk-circle1 sk-circle"></div>
-          <div class="sk-circle2 sk-circle"></div>
-          <div class="sk-circle3 sk-circle"></div>
-          <div class="sk-circle4 sk-circle"></div>
-          <div class="sk-circle5 sk-circle"></div>
-          <div class="sk-circle6 sk-circle"></div>
-          <div class="sk-circle7 sk-circle"></div>
-          <div class="sk-circle8 sk-circle"></div>
-          <div class="sk-circle9 sk-circle"></div>
-          <div class="sk-circle10 sk-circle"></div>
-          <div class="sk-circle11 sk-circle"></div>
-          <div class="sk-circle12 sk-circle"></div>
-      </div>
-  </div>
-
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
@@ -314,16 +294,6 @@ src="../js/jquery.js"></script>
         // $.ajax close
     }
     // main function close
-
-    //Preloader
-    $(window).on("load", function() {
-        var preloaderFadeOutTime = 500;
-        function hidePreloader() {
-            var preloader = $('.spinner-wrapper');
-            preloader.fadeOut(preloaderFadeOutTime);
-        }
-        hidePreloader();
-    });
     $(document).ready(function () {
         // to toggle sidebar
         $('#sidebarCollapse').on('click', function () {
