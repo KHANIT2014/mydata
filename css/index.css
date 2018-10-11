@@ -4,7 +4,7 @@
     @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
     @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
     body {
-        font-family: 'Roboto', sans-serif;
+        /*font-family: 'Roboto', sans-serif;*/
         background: #fafafa;
         height: 100vh;
     }
@@ -13,7 +13,7 @@
     }
 
     p {
-        font-family: 'Roboto', sans-serif;
+        /*font-family: 'Roboto', sans-serif;*/
         font-size: 1.1em;
         font-weight: 300;
         line-height: 1.7em;
@@ -32,8 +32,8 @@
         margin-bottom: 10px;
     }
     .navbar {
-        padding: 15px 10px;
-        padding-bottom: 22.5px;
+        padding: 8px 10px;
+        /*padding-bottom: 10px;*/
         background: #fff;
         border: none;
         border-radius: 0;
@@ -93,19 +93,9 @@
         } */
 
         #sidebar .sidebar-header{
-            padding: 20px;
+            padding: 8.5px;
             /*custom dark background for brand logo*/
             background: #101010;
-        }
-        /*custom brand span*/
-        #sidebar .sidebar-header h3{
-            margin-top: 0.5rem;
-            margin-bottom: -0.08rem;
-            font-size: 30.4px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
         /*custom*/
         .questiondisplay{
@@ -115,7 +105,7 @@
         #sidebar .sidebar-header span{
             display: block;
             font-size: 8px;
-            font-family: 'Roboto', sans-serif;
+            /*font-family: 'Roboto', sans-serif;*/
             letter-spacing: 6px;
             text-align: center;
             text-transform: uppercase;
@@ -171,7 +161,7 @@
     #content {
         width: 100%;
         /*padding: 20px;*/
-        padding-top: 15px;
+        /*padding-top: 15px;*/
         min-height: 100vh;
         transition: all 0.3s;
     }
@@ -218,9 +208,15 @@
     }
     @media (min-width: 992px){
         #content div ul li {
-            padding-right: 0.5rem;
-            padding-left: 0.5rem;
+            padding-right: 0.1rem;
+            padding-left: 0.1rem;
             margin: auto;
+        }
+        #sidebar .sidebar-header{
+            padding-left: 100px;
+        }
+        #content .navbar{
+            padding-right: 7.95rem;
         }
     }
     @media (width: 1024px) AND (height: 1366px){
@@ -237,5 +233,12 @@
     @media(max-width: 500px){
         .csqtqstq{
             height: 43.5vh;
+        }
+        #sidebar .sidebar-header{
+            padding-left: 20px;
+        }
+        #content .navbar{
+            position: sticky;top: 0px;
+            z-index: 10;
         }
     }

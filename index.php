@@ -13,7 +13,50 @@ require("config.php");
 	<link rel="stylesheet" href="css/navfoot.css">
 	<title>Home</title>
 	<style>
+	
+	.wrap-a , .wrap-b{
+		overflow-y: scroll;
+		overflow-x: none;
+		text-align: justify;
+		padding-bottom: 5rem;
+	}
+	.wrap-a{
+		font-size: 20px;
+		font-weight: 400;
+		/*filter: blur(8px);*/
+		/*-webkit-filter: blur(8px);*/
+		background: url("image/read.jpg") fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		box-shadow:inset 0 0 0 2000px rgba(255,255,255,0.3);
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0, 0.4);
+	}
+	.wrap-b{
+		font-size: 20px;
+		font-weight: 300;
+		background-color: floralwhite;
+	}
+	@media (min-width: 500px) {
+		.footer{
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+		.wrap{
+			min-height: 70%;
+			max-height: 100%;
+			height: 85%;
+		}
 
+	}
+	@media(max-width: 500px){
+		.wrap-a , .wrap-b{
+			height: auto;
+		}
+	}
 </style>
 </head>
 <body>
@@ -83,10 +126,29 @@ require("config.php");
 					if(isset($_SESSION['uid'])){
 						?>
 
-						<li class="nav-item">
-							<a href="logout.php" class="nav-link btn btn-outline-danger my-2 my-sm-0">
-								Logout
+						<li class="nav-item dropdown">
+							<a href="#" class="nav-link btn btn-outline-danger my-2 my-sm-0" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Welcome , <?php 
+								$string = "SELECT * FROM `users` WHERE UID=$_SESSION[uid]";
+								$temp = $mysqli->query($string);
+								if($demo = $temp->fetch_row()){
+									echo "$demo[1] $demo[2]";
+								}
+								?>
 							</a>
+
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+
+								<a href="changep.php" class="dropdown-item">
+									Change Password
+								</a>
+
+								<div class="dropdown-divider"></div>
+
+								<a href="logout.php" class="dropdown-item">
+									Logout
+								</a>
+							</div>
 						</li>
 						<?php
 					}
@@ -98,23 +160,94 @@ require("config.php");
 	</div>
 </nav>
 
+<!-- content starts here -->
+<div class="wrap row mx-0">
+	<div class="wrap-a col-12 col-sm-6 pt-3">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		
+		
+
+	</div>
+	<div class="wrap-b col-12 col-sm-6 pt-3">
+		<h3>HEADING1</h3>
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		<h4>Sub Heading</h4>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem maiores necessitatibus assumenda quo voluptates non eum consequatur, cumque eligendi.
+		<br>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet rerum debitis recusandae animi ipsam veniam nesciunt, repellat expedita voluptatibus quam.
+		
+	</div>
+</div>
+
 <!-- footer starts here -->
 <div class="footer m-0 bg-black py-3">
 
 	<div class="row justify-content-center mx-0 bottom-link">
-		<div class="col-sm-12 col-md-auto text-center ">
+		<div class="col-2 col-md-auto text-center ">
 			<a href="terms.php">Terms</a>
 		</div>
-		<div class="col-sm-12 col-md-auto text-center ">
+		<div class="col-3 col-md-auto text-center ">
 			<a href="disclaimer.php">Disclaimer</a>
 		</div>
-		<div class="col-sm-12 col-md-auto text-center">
+		<div class="col-2 col-md-auto text-center">
 			<a href="privacy.php">Privacy</a>
 		</div>
-		<div class="col-sm-12 col-md-auto text-center">
+		<div class="col-2 col-md-auto text-center">
 			<a href="cookie.php">Cookie</a>
 		</div>
-		<div class="col-sm-12 col-md-auto text-center">
+		<div class="col-3 col-md-auto text-center">
 			<a href="contact.php">Contact</a>
 		</div>
 	</div>

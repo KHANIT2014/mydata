@@ -8,13 +8,13 @@
 				FROM `course` AS c
 				INNER JOIN `level` AS l
 				ON l.`L_CID`=c.CID AND c.`C_name`='$c_name'";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 
 				$string1 = "SELECT r.`R_name`
 				FROM `course` AS c
 				INNER JOIN `reference` AS r
 				ON r.`R_CID`=c.CID AND c.`C_name`='$c_name'";
-				$temp1 = $sql->query($string1);
+				$temp1 = $mysqli->query($string1);
 
 				$response = "";
 				$data = array();
@@ -43,13 +43,13 @@
 				FROM `attempt` AS a
 				INNER JOIN `level` AS l 
 				ON a.`A_LID`=l.LID AND l.`L_name`='$lname'";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 
 				$string1 = "SELECT s.`S_name` 
 				FROM `subject` AS s
 				INNER JOIN `level` AS l 
 				ON s.`S_LID`=l.LID AND l.`L_name`='$lname'";
-				$temp1 = $sql->query($string1);
+				$temp1 = $mysqli->query($string1);
 
 				$response = "";
 				$data = array();
@@ -77,7 +77,7 @@
 				FROM `topic` AS t
 				INNER JOIN `subject` AS s
 				ON t.T_SID=s.SID AND s.S_name='$sname'";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 
 				while($demo = $temp->fetch_row()){
 					?>
@@ -94,7 +94,7 @@
 				FROM `subtopic` AS st
 				INNER JOIN `topic` AS t
 				ON st.ST_TID=t.TID AND t.T_name='$sname'";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 
 				while($demo = $temp->fetch_row()){
 					?>
@@ -117,7 +117,7 @@
 				INNER JOIN `subject` AS s
 				ON s.SID=t.T_SID
 				";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 				while($demo = $temp->fetch_row()){
 					?>
 					<button class="clickable btn btn-block btn-light" onclick="view(<?php echo $demo[0].",".$demo[5] ; ?>)">
@@ -140,7 +140,7 @@
 				$qid = secure($_POST['qid']);
 				$stid = secure($_POST['stid']);
 				$string = "SELECT * FROM `question` WHERE Q_STID=$stid AND QID=$qid";
-				$temp = $sql->query($string);
+				$temp = $mysqli->query($string);
 
 				if($demo = $temp->fetch_row()){
 					?>

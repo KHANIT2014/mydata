@@ -25,222 +25,228 @@ require("../config.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <style>
-
+    
 </style>
 </head>
 <body>
     <!--CSS Spinner-->
     <div class="spinner-wrapper">
-     <div class="sk-fading-circle">
-      <div class="sk-circle1 sk-circle"></div>
-      <div class="sk-circle2 sk-circle"></div>
-      <div class="sk-circle3 sk-circle"></div>
-      <div class="sk-circle4 sk-circle"></div>
-      <div class="sk-circle5 sk-circle"></div>
-      <div class="sk-circle6 sk-circle"></div>
-      <div class="sk-circle7 sk-circle"></div>
-      <div class="sk-circle8 sk-circle"></div>
-      <div class="sk-circle9 sk-circle"></div>
-      <div class="sk-circle10 sk-circle"></div>
-      <div class="sk-circle11 sk-circle"></div>
-      <div class="sk-circle12 sk-circle"></div>
+       <div class="sk-fading-circle">
+          <div class="sk-circle1 sk-circle"></div>
+          <div class="sk-circle2 sk-circle"></div>
+          <div class="sk-circle3 sk-circle"></div>
+          <div class="sk-circle4 sk-circle"></div>
+          <div class="sk-circle5 sk-circle"></div>
+          <div class="sk-circle6 sk-circle"></div>
+          <div class="sk-circle7 sk-circle"></div>
+          <div class="sk-circle8 sk-circle"></div>
+          <div class="sk-circle9 sk-circle"></div>
+          <div class="sk-circle10 sk-circle"></div>
+          <div class="sk-circle11 sk-circle"></div>
+          <div class="sk-circle12 sk-circle"></div>
+      </div>
   </div>
-</div>
 
-<div class="wrapper">
+  <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Question Paper</h3>
-            <span>Education</span>
-        </div>
-        
-        <ul class="list-unstyled components">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="course" name="course">
-                            <option value="">Course</option>
-                            <?php
-                            $string = "SELECT * FROM `course`";
-                            $temp = $sql->query($string);
-                            while($demo = $temp->fetch_row()){
-                                ?> 
-                                <option value="<?php echo $demo[1]; ?>"><?php echo $demo[1]; ?></option> 
-                                <?php 
-                            }
+         <a href="" class="navbar-brand" title="navbar">Question Paper</a>
+     </div>
+     
+     <ul class="list-unstyled components">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="course" name="course">
+                        <option value="">Course</option>
+                        <?php
+                        $string = "SELECT * FROM `course`";
+                        $temp = $mysqli->query($string);
+                        while($demo = $temp->fetch_row()){
                             ?> 
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="level" name="level">
-                            <option value="">Level</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="attempt" name="attempt">
-                            <option value="">Attempt</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="reference" name="reference">
-                            <option value="">References</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="subject" name="subject">
-                            <option value="">Subject</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="topic" name="topic">
-                            <option value="">Topic</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <select class="form-control" id="subtopic" name="subtopic">
-                            <option value="">Sub-Topic</option>
-                        </select>
-                    </div>
+                            <option value="<?php echo $demo[1]; ?>"><?php echo $demo[1]; ?></option> 
+                            <?php 
+                        }
+                        ?> 
+                    </select>
                 </div>
             </div>
-        </ul>
-        <div class="csqtqstq">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="level" name="level">
+                        <option value="">Level</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="attempt" name="attempt">
+                        <option value="">Attempt</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="reference" name="reference">
+                        <option value="">References</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="subject" name="subject">
+                        <option value="">Subject</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="topic" name="topic">
+                        <option value="">Topic</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" id="subtopic" name="subtopic">
+                        <option value="">Sub-Topic</option>
+                    </select>
+                </div>
+            </div>
         </div>
-    </nav>
+    </ul>
+    <div class="csqtqstq">
+    </div>
+</nav>
 
-    <!-- Page Content  -->
-    <div id="content">
+<!-- Page Content  -->
+<div id="content">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black0" style="position: sticky;top: 0px;">
-            <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black0">
+        <div class="container-fluid">
 
-                <button type="button" id="sidebarCollapse" class="btn btn-red">
-                    <i class="fas fa-align-left"></i>
-                </button>
-                <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: transparent;border-color: grey;">
-                    <i class="fas fa-align-justify text-light"></i>
-                </button>
+            <button type="button" id="sidebarCollapse" class="btn btn-red">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <button class="btn d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: transparent;border-color: grey;">
+                <i class="fas fa-align-justify text-light"></i>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="../index.php" class="nav-link">
-                                Home
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="../index.php" class="nav-link">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="question.php" class="nav-link text-light">
+                            Question Paper
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../about.php" class="nav-link">
+                            About
+                        </a>
+                    </li>
+
+                    <?php
+                    if(!isset($_SESSION['uid'])){
+                        ?>
+                        <li class="nav-item dropdown">
+
+                            <a href="#" class="nav-link btn btn-outline-danger my-sm-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
                             </a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a href="question.php" class="nav-link text-light">
-                                Question Paper
-                            </a>
-                        </li>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                        <li class="nav-item">
-                            <a href="../about.php" class="nav-link">
-                                About
-                            </a>
-                        </li>
-
-                        <?php
-                        if(!isset($_SESSION['uid'])){
-                            ?>
-                            <li class="nav-item dropdown">
-
-                                <a href="#" class="nav-link btn btn-outline-danger my-sm-0" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Account
+                                <a class="dropdown-item" href="../login.php">
+                                    Login
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-divider"></div>
 
-                                    <a class="dropdown-item" href="../login.php">
-                                        Login
-                                    </a>
+                                <a class="dropdown-item" href="../signup.php">
+                                    Signup
+                                </a>
 
-                                    <div class="dropdown-divider"></div>
-
-                                    <a class="dropdown-item" href="../signup.php">
-                                        Signup
-                                    </a>
-
-                                </div>
-                            </li>
-                            <?php
-                        }
+                            </div>
+                        </li>
+                        <?php
+                    }
+                    
+                    if(isset($_SESSION['uid'])){
                         ?>
 
-                        <?php
-                        if(isset($_SESSION['uid'])){
-                            ?>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link btn btn-outline-danger my-2 my-sm-0" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Welcome , <?php 
+                                $string = "SELECT * FROM `users` WHERE UID=$_SESSION[uid]";
+                                $temp = $mysqli->query($string);
+                                if($demo = $temp->fetch_row()){
+                                    echo "$demo[1] $demo[2]";
+                                }
+                                ?>
+                            </a>
 
-                            <li class="nav-item">
-                                <a href="../logout.php" class="nav-link btn btn-outline-danger my-2 my-sm-0">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+
+                                <a href="../changep.php" class="dropdown-item">
+                                    Change Password
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a href="../logout.php" class="dropdown-item">
                                     Logout
                                 </a>
-                            </li>
-                            <?php
-                        }
-                        ?>
-
-                    </li>
+                            </div>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- //banner-text -->
-    <!-- <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a href="../index.html" class="text-red">Home</a>
-        </li>
-        <li class="breadcrumb-item active">Question Bank</li>
-    </ol>
     <div class="questiondisplay">
       <div class="line"></div>
       <h2 class="text-center"><b>Question</b> will display here</h2>
       <div class="line"></div>
   </div>
- -->  <!-- content closes here -->
+</div>
+<!-- content closes here -->
 </div>
 
 <!-- wrapper closes here -->
-</div>
 <!-- footer starts here -->
 <div class="footer m-0 bg-black py-3" >
 
     <div class="row justify-content-center mx-0 bottom-link">
-        <div class="col-sm-12 col-md-auto text-center ">
-            <a href="terms.php">Terms</a>
+        <div class="col-2 col-md-auto text-center ">
+            <a href="../terms.php">Terms</a>
         </div>
-        <div class="col-sm-12 col-md-auto text-center ">
-            <a href="disclaimer.php">Disclaimer</a>
+        <div class="col-3 col-md-auto text-center ">
+            <a href="../disclaimer.php">Disclaimer</a>
         </div>
-        <div class="col-sm-12 col-md-auto text-center">
-            <a href="privacy.php">Privacy</a>
+        <div class="col-2 col-md-auto text-center">
+            <a href="../privacy.php">Privacy</a>
         </div>
-        <div class="col-sm-12 col-md-auto text-center">
-            <a href="cookie.php">Cookie</a>
+        <div class="col-2 col-md-auto text-center">
+            <a href="../cookie.php">Cookie</a>
         </div>
-        <div class="col-sm-12 col-md-auto text-center">
-            <a href="contact.php">Contact</a>
+        <div class="col-3 col-md-auto text-center">
+            <a href="../contact.php">Contact</a>
         </div>
     </div>
 
     <div class="row justify-content-end mx-0 pr-3 text-danger">
         &copy; 2018-2019 , created by &nbsp<a href="http://www.hertzsoft.com" class="text-light">Hertzsoft</a>
     </div>
-
 </div>
 
 <!-- jQuery -->

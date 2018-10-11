@@ -115,17 +115,21 @@ if(isset($_SESSION['uid'])){
 
 <!-- footer starts here -->
 <div class="footer m-0 bg-black py-3">
+  
   <div class="row justify-content-center mx-0 bottom-link">
-    <div class="col-sm-12 col-md-auto text-center ">
+    <div class="col-2 col-md-auto text-center ">
       <a href="terms.php">Terms</a>
     </div>
-    <div class="col-sm-12 col-md-auto text-center ">
+    <div class="col-3 col-md-auto text-center ">
       <a href="disclaimer.php">Disclaimer</a>
     </div>
-    <div class="col-sm-12 col-md-auto text-center">
+    <div class="col-2 col-md-auto text-center">
       <a href="privacy.php">Privacy</a>
     </div>
-    <div class="col-sm-12 col-md-auto text-center">
+    <div class="col-2 col-md-auto text-center">
+      <a href="cookie.php">Cookie</a>
+    </div>
+    <div class="col-3 col-md-auto text-center">
       <a href="contact.php">Contact</a>
     </div>
   </div>
@@ -142,12 +146,12 @@ if (isset($_POST['submit'])) {
   $remember = secure($_POST['remember']);
 
   $string = "SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password'";
-  $temp = $sql->query($string);
+  $temp = $mysqli->query($string);
 
   if($demo = $temp->fetch_assoc())
   {
     if ($remember) {
-      setcookie("uid" ,"$demo[UID]", time()+60*5);
+      setcookie("uid" ,$demo['UID'], time()+60*5);
     }
     $_SESSION['uid'] = $demo['UID'];
     header("location:index.php");

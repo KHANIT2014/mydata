@@ -1,3 +1,7 @@
+	html,body{
+		height: 100%;
+		margin: 0;
+	}
 	#naav , .bg-black0{
 		/*background-color: #0E204C !important;*/
 		background-color: #000;
